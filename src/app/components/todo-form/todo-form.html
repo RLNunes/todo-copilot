@@ -1,19 +1,24 @@
 <div class="mb-6">
-  <form (ngSubmit)="onSubmit()" class="flex flex-col sm:flex-row gap-3">
-    <input
-      type="text"
-      [(ngModel)]="newTodoTitle"
-      (keypress)="onKeyPress($event)"
-      placeholder="Add a new todo..."
-      name="todoTitle"
-      class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 placeholder-gray-400"
-    />
-    <button
-      type="submit"
-      [disabled]="!newTodoTitle.trim()"
-      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 font-medium"
-    >
-      Add Todo
-    </button>
+  <form (ngSubmit)="onSubmit()" class="nb-form-group">
+    <div class="nb-form-field-group">
+      <div class="nb-form-field">
+        <input
+          class="nb-input nb-transition"
+          type="text"
+          [(ngModel)]="newTodoTitle"
+          (keypress)="onKeyPress($event)"
+          placeholder="Add a new todo..."
+          name="todoTitle"
+        />
+      </div>
+      <button
+        type="submit"
+        class="nb-button nb-transition nb-button-primary"
+        [disabled]="!newTodoTitle.trim()"
+        [class.nb-button-disabled]="!newTodoTitle.trim()"
+      >
+        Add Todo
+      </button>
+    </div>
   </form>
 </div>

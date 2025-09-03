@@ -5,7 +5,11 @@ import { TodoListComponent } from './components/todo-list/todo-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TodoFormComponent, TodoListComponent],
+  imports: [
+    RouterOutlet, 
+    TodoFormComponent, 
+    TodoListComponent
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

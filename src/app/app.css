@@ -1,0 +1,39 @@
+/* Nebular-inspired global styling */
+.nb-layout {
+  min-height: 100vh;
+  background: var(--background-basic-color-1, #ffffff);
+}
+
+.nb-layout-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.colored-column-basic {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.nb-card {
+  background: var(--background-basic-color-1, #ffffff);
+  border: 1px solid var(--border-basic-color, #e4e9f2);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 12px 0 rgba(34, 43, 69, 0.25);
+  overflow: hidden;
+}
+
+.nb-card-body {
+  padding: 1.5rem;
+}
+
+.nb-text-basic {
+  color: var(--text-basic-color, #2e3a59);
+}
+
+.nb-text-hint {
+  color: var(--text-hint-color, #8f9bb3);
+}
+
+.nb-transition {
+  transition: all 0.15s ease-in-out;
+}

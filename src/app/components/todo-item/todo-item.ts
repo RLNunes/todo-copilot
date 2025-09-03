@@ -5,7 +5,10 @@ import { TodoItem, TodoService } from '../../services/todo';
 
 @Component({
   selector: 'app-todo-item',
-  imports: [FormsModule, CommonModule],
+  imports: [
+    FormsModule, 
+    CommonModule
+  ],
   templateUrl: './todo-item.html',
   styleUrl: './todo-item.css'
 })

@@ -1,0 +1,90 @@
+/* Nebular-inspired item styling */
+.nb-card {
+  background: var(--background-basic-color-1, #ffffff);
+  border: 1px solid var(--border-basic-color, #e4e9f2);
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.15s ease-in-out;
+  margin-bottom: 0.75rem;
+}
+
+.nb-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.nb-card-body {
+  padding: 1rem;
+}
+
+.nb-checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nb-checkbox input {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-primary, #3366ff);
+}
+
+.nb-button-small {
+  padding: 0.5rem;
+  min-height: 2rem;
+  font-size: 0.875rem;
+}
+
+.nb-button-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--text-hint-color, #8f9bb3);
+}
+
+.nb-button-ghost:hover {
+  background-color: var(--background-basic-color-2, #f7f9fc);
+  color: var(--text-basic-color, #2e3a59);
+}
+
+.nb-button-success {
+  background-color: var(--color-success, #00d68f);
+  color: var(--text-control-color, #ffffff);
+  border-color: var(--color-success, #00d68f);
+}
+
+.nb-button-success:hover {
+  background-color: var(--color-success-hover, #00b887);
+  border-color: var(--color-success-hover, #00b887);
+}
+
+.nb-button-danger {
+  background-color: var(--color-danger, #ff3d71);
+  color: var(--text-control-color, #ffffff);
+  border-color: var(--color-danger, #ff3d71);
+}
+
+.nb-button-danger:hover {
+  background-color: var(--color-danger-hover, #e63946);
+  border-color: var(--color-danger-hover, #e63946);
+}
+
+.nb-button-basic {
+  background-color: var(--background-basic-color-2, #f7f9fc);
+  color: var(--text-basic-color, #2e3a59);
+  border-color: var(--border-basic-color, #e4e9f2);
+}
+
+.nb-button-basic:hover {
+  background-color: var(--background-basic-color-3, #edf1f7);
+  border-color: var(--border-basic-color-2, #d4edda);
+}
+
+.nb-text-basic {
+  color: var(--text-basic-color, #2e3a59);
+}
+
+.nb-text-hint {
+  color: var(--text-hint-color, #8f9bb3);
+}
