@@ -1,0 +1,79 @@
+<div class="bg-white rounded-lg border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
+  <div class="flex items-center gap-3">
+    <!-- Checkbox -->
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (change)="toggleComplete()"
+      class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+    />
+    
+    <!-- Todo content -->
+    <div class="flex-1 min-w-0">
+      <div *ngIf="!isEditing" class="flex items-center justify-between">
+        <span 
+          [class.line-through]="todo.completed" 
+          [class.text-gray-500]="todo.completed"
+          class="text-gray-900 font-medium break-words cursor-pointer"
+          (dblclick)="startEdit()"
+        >
+          {{ todo.title }}
+        </span>
+        <div class="flex gap-2 ml-3">
+          <button
+            (click)="startEdit()"
+            class="p-2 text-gray-400 hover:text-blue-600 focus:outline-none focus:text-blue-600 transition-colors duration-200"
+            title="Edit todo"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+          <button
+            (click)="deleteTodo()"
+            class="p-2 text-gray-400 hover:text-red-600 focus:outline-none focus:text-red-600 transition-colors duration-200"
+            title="Delete todo"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Edit mode -->
+      <div *ngIf="isEditing" class="flex gap-2">
+        <input
+          type="text"
+          [(ngModel)]="editTitle"
+          (keypress)="onKeyPress($event)"
+          class="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700"
+          autoFocus
+        />
+        <button
+          (click)="saveEdit()"
+          class="px-3 py-2 bg-green-500 text-white rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors duration-200"
+          title="Save"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </button>
+        <button
+          (click)="cancelEdit()"
+          class="px-3 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"
+          title="Cancel"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Created date -->
+  <div class="mt-2 text-xs text-gray-400">
+    Created: {{ todo.createdAt | date:'short' }}
+  </div>
+</div>
