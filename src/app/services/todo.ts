@@ -16,12 +16,15 @@ export class TodoService {
   private idCounter = 1;
 
   constructor() {
-    // Load todos from localStorage if available
+    this.loadTodos();
+  }
+
+  private loadTodos(): void {
     const savedTodos = localStorage.getItem('todos');
     if (savedTodos) {
-      const parsedTodos = JSON.parse(savedTodos);
+      const parsedTodos: TodoItem[] = JSON.parse(savedTodos);
       // Convert createdAt string back to Date object
-      const todos = parsedTodos.map((todo: any) => ({
+      const todos = parsedTodos.map((todo: TodoItem) => ({
         ...todo,
         createdAt: new Date(todo.createdAt)
       }));
