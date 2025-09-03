@@ -29,12 +29,4 @@ export class TodoListComponent implements OnInit {
   trackByTodoId(index: number, todo: TodoItem): string {
     return todo.id;
   }
-
-  getCompletedCount(): Observable<number> {
-    return this.completedCount$;
-  }
-
-  getRemainingCount(): Observable<number> {
-    return this.remainingCount$;
-  }
 }
