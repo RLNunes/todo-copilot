@@ -1,16 +1,16 @@
 <div class="nb-layout">
-  <div class="nb-layout-column colored-column-basic">
-    <div class="container mx-auto px-4 py-8">
+  <div class="nb-layout-column">
+    <div style="padding: 2rem; max-width: 48rem; margin: 0 auto;">
       <!-- Header -->
-      <header class="text-center mb-8">
-        <h1 class="text-4xl font-bold mb-2">{{ title() }}</h1>
-        <p class="nb-text-hint">Simple, elegant todo management with Angular, Tailwind, and Nebular</p>
+      <header style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 2.25rem; font-weight: bold; margin-bottom: 0.5rem;">{{ title() }}</h1>
+        <p style="color: var(--text-hint-color);">Simple, elegant todo management with Angular and Nebular</p>
       </header>
 
       <!-- Main Content -->
-      <main class="max-w-2xl mx-auto">
-        <div class="nb-card">
-          <div class="nb-card-body">
+      <main>
+        <div class="card">
+          <div class="card-body">
             <!-- Todo Form -->
             <app-todo-form></app-todo-form>
             
@@ -21,8 +21,8 @@
       </main>
 
       <!-- Footer -->
-      <footer class="text-center mt-8 nb-text-hint text-sm">
-        <p>Built with Angular, Tailwind CSS, and Nebular Design System</p>
+      <footer style="text-align: center; margin-top: 2rem; color: var(--text-hint-color); font-size: 0.875rem;">
+        <p>Built with Angular and Nebular Design System</p>
       </footer>
     </div>
   </div>

@@ -1,21 +1,21 @@
 <div>
-  <div *ngIf="(todos$ | async)?.length === 0" class="text-center py-8">
-    <div class="nb-text-hint text-lg">
-      <div class="nb-icon nb-icon-large mb-4">📋</div>
-      <p class="nb-text-basic font-medium">No todos yet!</p>
-      <p class="nb-text-hint text-sm mt-1">Add your first todo above to get started.</p>
+  <div *ngIf="(todos$ | async)?.length === 0" style="text-align: center; padding: 2rem 0;">
+    <div style="color: var(--text-hint-color); font-size: 1.125rem;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
+      <p style="color: var(--text-basic-color); font-weight: 500;">No todos yet!</p>
+      <p style="color: var(--text-hint-color); font-size: 0.875rem; margin-top: 0.25rem;">Add your first todo above to get started.</p>
     </div>
   </div>
   
-  <div class="nb-list" *ngIf="(todos$ | async)?.length! > 0">
-    <div class="nb-list-item" *ngFor="let todo of todos$ | async; trackBy: trackByTodoId">
+  <div *ngIf="(todos$ | async)?.length! > 0">
+    <div *ngFor="let todo of todos$ | async; trackBy: trackByTodoId">
       <app-todo-item [todo]="todo"></app-todo-item>
     </div>
   </div>
   
   <!-- Stats -->
-  <div *ngIf="(todos$ | async)?.length! > 0" class="mt-6 pt-4 nb-card-separator">
-    <div class="flex justify-between text-sm nb-text-hint">
+  <div *ngIf="(todos$ | async)?.length! > 0" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-basic-color);">
+    <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--text-hint-color);">
       <span>Total: {{ (todos$ | async)?.length }}</span>
       <span>Completed: {{ completedCount$ | async }}</span>
       <span>Remaining: {{ remainingCount$ | async }}</span>

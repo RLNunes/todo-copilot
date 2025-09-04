@@ -1,21 +1,22 @@
-<div class="mb-6">
-  <form (ngSubmit)="onSubmit()" class="nb-form-group">
-    <div class="nb-form-field-group">
-      <div class="nb-form-field">
+<div style="margin-bottom: 1.5rem;">
+  <form (ngSubmit)="onSubmit()">
+    <div style="display: flex; gap: 1rem; align-items: flex-end;">
+      <div style="flex: 1;">
         <input
-          class="nb-input nb-transition"
           type="text"
           [(ngModel)]="newTodoTitle"
           (keypress)="onKeyPress($event)"
           placeholder="Add a new todo..."
           name="todoTitle"
+          style="width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--border-basic-color); border-radius: 0.25rem; background: var(--background-basic-color-1); color: var(--text-basic-color); font-size: 0.9375rem;"
         />
       </div>
       <button
         type="submit"
-        class="nb-button nb-transition nb-button-primary"
         [disabled]="!newTodoTitle.trim()"
-        [class.nb-button-disabled]="!newTodoTitle.trim()"
+        style="display: inline-flex; align-items: center; justify-content: center; padding: 0.875rem 1.5rem; border: 1px solid var(--color-primary); border-radius: 0.25rem; font-size: 0.9375rem; font-weight: 500; cursor: pointer; background-color: var(--color-primary); color: white; min-height: 2.5rem;"
+        [style.opacity]="!newTodoTitle.trim() ? '0.6' : '1'"
+        [style.cursor]="!newTodoTitle.trim() ? 'not-allowed' : 'pointer'"
       >
         Add Todo
       </button>

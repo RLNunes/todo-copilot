@@ -1,39 +1,37 @@
-<div class="nb-card nb-transition">
-  <div class="nb-card-body">
-    <div class="flex items-center gap-3">
+<div class="card" style="margin-bottom: 0.75rem;">
+  <div class="card-body">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
       <!-- Checkbox -->
-      <label class="nb-checkbox">
-        <input
-          type="checkbox"
-          [checked]="todo.completed"
-          (change)="toggleComplete()"
-        />
-        <span class="nb-checkbox-checkmark"></span>
-      </label>
+      <input
+        type="checkbox"
+        [checked]="todo.completed"
+        (change)="toggleComplete()"
+        style="width: 1.25rem; height: 1.25rem; cursor: pointer; accent-color: var(--color-primary);"
+      />
       
       <!-- Todo content -->
-      <div class="flex-1 min-w-0">
-        <div *ngIf="!isEditing" class="flex items-center justify-between">
+      <div style="flex: 1; min-width: 0;">
+        <div *ngIf="!isEditing" style="display: flex; align-items: center; justify-content: space-between;">
           <span 
-            [class.line-through]="todo.completed" 
-            [class.nb-text-hint]="todo.completed"
-            class="nb-text-basic font-medium break-words cursor-pointer"
+            [style.text-decoration]="todo.completed ? 'line-through' : 'none'"
+            [style.color]="todo.completed ? 'var(--text-hint-color)' : 'var(--text-basic-color)'"
+            style="font-weight: 500; word-break: break-words; cursor: pointer;"
             (dblclick)="startEdit()"
           >
             {{ todo.title }}
           </span>
-          <div class="flex gap-2 ml-3">
+          <div style="display: flex; gap: 0.5rem; margin-left: 0.75rem;">
             <button
-              class="nb-button nb-transition nb-button-ghost nb-button-small"
               (click)="startEdit()"
               title="Edit todo"
+              style="padding: 0.5rem; background: transparent; border: none; color: var(--text-hint-color); cursor: pointer; border-radius: 0.25rem;"
             >
               ✏️
             </button>
             <button
-              class="nb-button nb-transition nb-button-ghost nb-button-small nb-button-danger"
               (click)="deleteTodo()"
               title="Delete todo"
+              style="padding: 0.5rem; background: transparent; border: none; color: var(--color-danger); cursor: pointer; border-radius: 0.25rem;"
             >
               🗑️
             </button>
@@ -41,25 +39,25 @@
         </div>
         
         <!-- Edit mode -->
-        <div *ngIf="isEditing" class="flex gap-2">
+        <div *ngIf="isEditing" style="display: flex; gap: 0.5rem;">
           <input
-            class="nb-input nb-transition flex-1"
             type="text"
             [(ngModel)]="editTitle"
             (keypress)="onKeyPress($event)"
-            autoFocus
+            #editInput
+            style="flex: 1; padding: 0.5rem; border: 1px solid var(--border-basic-color); border-radius: 0.25rem; background: var(--background-basic-color-1); color: var(--text-basic-color);"
           />
           <button
-            class="nb-button nb-transition nb-button-small nb-button-success"
             (click)="saveEdit()"
             title="Save"
+            style="padding: 0.5rem; background: var(--color-success); border: none; color: white; cursor: pointer; border-radius: 0.25rem;"
           >
             ✅
           </button>
           <button
-            class="nb-button nb-transition nb-button-small nb-button-basic"
             (click)="cancelEdit()"
             title="Cancel"
+            style="padding: 0.5rem; background: var(--background-basic-color-2); border: 1px solid var(--border-basic-color); color: var(--text-basic-color); cursor: pointer; border-radius: 0.25rem;"
           >
             ❌
           </button>
@@ -68,7 +66,7 @@
     </div>
     
     <!-- Created date -->
-    <div class="mt-2 text-xs nb-text-hint">
+    <div style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-hint-color);">
       Created: {{ todo.createdAt | date:'short' }}
     </div>
   </div>

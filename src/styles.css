@@ -1,8 +1,2 @@
-/* You can add global styles to this file, and also import other style files */
 /* Nebular Theme - must come first */
 @import '../node_modules/@nebular/theme/styles/prebuilt/default.css';
-
-/* Tailwind CSS */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
