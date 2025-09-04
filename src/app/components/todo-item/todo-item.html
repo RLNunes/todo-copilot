@@ -1,64 +1,49 @@
-<div class="card" style="margin-bottom: 0.75rem;">
+<div class="card todo-item">
   <div class="card-body">
-    <div style="display: flex; align-items: center; gap: 0.75rem;">
+    <div class="todo-content">
       <!-- Checkbox -->
       <input
+        class="form-check-input"
         type="checkbox"
         [checked]="todo.completed"
         (change)="toggleComplete()"
-        style="width: 1.25rem; height: 1.25rem; cursor: pointer; accent-color: var(--color-primary);"
-      />
+        id="todo-{{ todo.id }}">
       
       <!-- Todo content -->
-      <div style="flex: 1; min-width: 0;">
-        <div *ngIf="!isEditing" style="display: flex; align-items: center; justify-content: space-between;">
-          <span 
-            [style.text-decoration]="todo.completed ? 'line-through' : 'none'"
-            [style.color]="todo.completed ? 'var(--text-hint-color)' : 'var(--text-basic-color)'"
-            style="font-weight: 500; word-break: break-words; cursor: pointer;"
-            (dblclick)="startEdit()"
-          >
-            {{ todo.title }}
-          </span>
-          <div style="display: flex; gap: 0.5rem; margin-left: 0.75rem;">
-            <button
-              (click)="startEdit()"
-              title="Edit todo"
-              style="padding: 0.5rem; background: transparent; border: none; color: var(--text-hint-color); cursor: pointer; border-radius: 0.25rem;"
-            >
-              ✏️
-            </button>
-            <button
-              (click)="deleteTodo()"
-              title="Delete todo"
-              style="padding: 0.5rem; background: transparent; border: none; color: var(--color-danger); cursor: pointer; border-radius: 0.25rem;"
-            >
-              🗑️
-            </button>
-          </div>
-        </div>
+      <div class="todo-details" *ngIf="!isEditing">
+        <label 
+          [class.text-completed]="todo.completed"
+          class="todo-title"
+          (dblclick)="startEdit()"
+          for="todo-{{ todo.id }}">
+          {{ todo.title }}
+        </label>
         
-        <!-- Edit mode -->
-        <div *ngIf="isEditing" style="display: flex; gap: 0.5rem;">
-          <input
-            type="text"
-            [(ngModel)]="editTitle"
-            (keypress)="onKeyPress($event)"
-            #editInput
-            style="flex: 1; padding: 0.5rem; border: 1px solid var(--border-basic-color); border-radius: 0.25rem; background: var(--background-basic-color-1); color: var(--text-basic-color);"
-          />
-          <button
-            (click)="saveEdit()"
-            title="Save"
-            style="padding: 0.5rem; background: var(--color-success); border: none; color: white; cursor: pointer; border-radius: 0.25rem;"
-          >
+        <div class="todo-actions">
+          <button class="btn btn-outline-secondary btn-sm" (click)="startEdit()" title="Edit todo">
+            ✏️
+          </button>
+          
+          <button class="btn btn-outline-danger btn-sm" (click)="deleteTodo()" title="Delete todo">
+            🗑️
+          </button>
+        </div>
+      </div>
+      
+      <!-- Edit mode -->
+      <div class="todo-edit" *ngIf="isEditing">
+        <input
+          class="form-control form-control-sm"
+          [(ngModel)]="editTitle"
+          (keypress)="onKeyPress($event)"
+          #editInput>
+        
+        <div class="edit-actions">
+          <button class="btn btn-success btn-sm" (click)="saveEdit()" title="Save">
             ✅
           </button>
-          <button
-            (click)="cancelEdit()"
-            title="Cancel"
-            style="padding: 0.5rem; background: var(--background-basic-color-2); border: 1px solid var(--border-basic-color); color: var(--text-basic-color); cursor: pointer; border-radius: 0.25rem;"
-          >
+          
+          <button class="btn btn-secondary btn-sm" (click)="cancelEdit()" title="Cancel">
             ❌
           </button>
         </div>
@@ -66,8 +51,6 @@
     </div>
     
     <!-- Created date -->
-    <div style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-hint-color);">
-      Created: {{ todo.createdAt | date:'short' }}
-    </div>
+    <small class="text-muted">Created: {{ todo.createdAt | date:'short' }}</small>
   </div>
 </div>

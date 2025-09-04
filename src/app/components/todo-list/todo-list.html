@@ -1,9 +1,11 @@
 <div>
-  <div *ngIf="(todos$ | async)?.length === 0" style="text-align: center; padding: 2rem 0;">
-    <div style="color: var(--text-hint-color); font-size: 1.125rem;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
-      <p style="color: var(--text-basic-color); font-weight: 500;">No todos yet!</p>
-      <p style="color: var(--text-hint-color); font-size: 0.875rem; margin-top: 0.25rem;">Add your first todo above to get started.</p>
+  <div *ngIf="(todos$ | async)?.length === 0" class="empty-state">
+    <div class="card">
+      <div class="card-body text-center">
+        <div class="empty-state-icon">📋</div>
+        <h5 class="card-title">No todos yet!</h5>
+        <p class="card-text text-muted">Add your first todo above to get started.</p>
+      </div>
     </div>
   </div>
   
@@ -14,11 +16,15 @@
   </div>
   
   <!-- Stats -->
-  <div *ngIf="(todos$ | async)?.length! > 0" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-basic-color);">
-    <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--text-hint-color);">
-      <span>Total: {{ (todos$ | async)?.length }}</span>
-      <span>Completed: {{ completedCount$ | async }}</span>
-      <span>Remaining: {{ remainingCount$ | async }}</span>
+  <div *ngIf="(todos$ | async)?.length! > 0" class="stats-section">
+    <div class="card">
+      <div class="card-body">
+        <div class="stats-row">
+          <span class="badge badge-secondary">Total: {{ (todos$ | async)?.length }}</span>
+          <span class="badge badge-success">Completed: {{ completedCount$ | async }}</span>
+          <span class="badge badge-primary">Remaining: {{ remainingCount$ | async }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
