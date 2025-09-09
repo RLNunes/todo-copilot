@@ -1,0 +1,54 @@
+/* Using Nebular design system CSS custom properties */
+.layout {
+  min-height: 100vh;
+  background: var(--background-basic-color-1, #fff);
+  color: var(--text-basic-color, #333);
+}
+
+.layout-container {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.layout-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.layout-header .h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-basic-color, #333);
+}
+
+.layout-header .text-hint {
+  color: var(--text-hint-color, #888);
+}
+
+.layout-content {
+  flex: 1;
+}
+
+.layout-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.layout-footer .text-hint {
+  color: var(--text-hint-color, #888);
+  font-size: 0.875rem;
+}
+
+.card {
+  background: var(--background-basic-color-1, #fff);
+  border: 1px solid var(--border-basic-color, #eee);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 12px 0 rgba(34, 43, 69, 0.25);
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 1.5rem;
+}

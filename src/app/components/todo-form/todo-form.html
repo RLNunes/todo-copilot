@@ -1,0 +1,21 @@
+<div class="form-group">
+  <form (ngSubmit)="onSubmit()">
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="newTodoTitle"
+        (keypress)="onKeyPress($event)"
+        placeholder="Add a new todo..."
+        name="todoTitle">
+      <div class="input-group-append">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!newTodoTitle.trim()">
+          Add Todo
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

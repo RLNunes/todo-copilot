@@ -1,0 +1,56 @@
+<div class="card todo-item">
+  <div class="card-body">
+    <div class="todo-content">
+      <!-- Checkbox -->
+      <input
+        class="form-check-input"
+        type="checkbox"
+        [checked]="todo.completed"
+        (change)="toggleComplete()"
+        id="todo-{{ todo.id }}">
+      
+      <!-- Todo content -->
+      <div class="todo-details" *ngIf="!isEditing">
+        <label 
+          [class.text-completed]="todo.completed"
+          class="todo-title"
+          (dblclick)="startEdit()"
+          for="todo-{{ todo.id }}">
+          {{ todo.title }}
+        </label>
+        
+        <div class="todo-actions">
+          <button class="btn btn-outline-secondary btn-sm" (click)="startEdit()" title="Edit todo">
+            ✏️
+          </button>
+          
+          <button class="btn btn-outline-danger btn-sm" (click)="deleteTodo()" title="Delete todo">
+            🗑️
+          </button>
+        </div>
+      </div>
+      
+      <!-- Edit mode -->
+      <div class="todo-edit" *ngIf="isEditing">
+        <input
+          class="form-control form-control-sm"
+          [(ngModel)]="editTitle"
+          (keypress)="onKeyPress($event)"
+          #editInput>
+        
+        <div class="edit-actions">
+          <button class="btn btn-success btn-sm" (click)="saveEdit()" title="Save">
+            ✅
+          </button>
+          
+          <button class="btn btn-secondary btn-sm" (click)="cancelEdit()" title="Cancel">
+            ❌
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Created date -->
+    <small class="text-muted">Created: {{ todo.createdAt | date:'short' }}</small>
+  </div>
+</div>
